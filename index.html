@@ -55,109 +55,73 @@
   <body
     class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen p-6"
   >
-    <nav class="mb-12">
-      <!-- En-tête -->
-      <div class="text-center mb-8 animate-slide-in no-print">
-        <h1
-          class="text-6xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3"
-        >
-          BOUSSOLE COMMUNICATION
-        </h1>
-        <h2 class="text-3xl font-semibold text-gray-700">DEMANDE DE TRAVAUX</h2>
-      </div>
-    </nav>
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Message de succès -->
-      <div
-        id="messageSucces"
-        class="hidden bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl shadow-2xl p-6 mb-6 animate-slide-in no-print"
-      >
-        <div class="flex items-center gap-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+    <!-- Page de connexion -->
+    <div id="pageConnexion" class="min-h-screen flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md animate-slide-in">
+        <div class="text-center mb-8">
+          <h1
+            class="text-4xl font-bold bg-gradient-to-r from-blue-950 to-amber-800 bg-clip-text text-transparent mb-3"
           >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          <div>
-            <p class="text-2xl font-bold">✓ Succès !</p>
-            <p class="text-lg opacity-90" id="messageTexte">
-              Votre demande a été enregistrée avec succès.
-            </p>
-          </div>
+            BOUSSOLE COMMUNICATION
+          </h1>
+          <h2 class="text-xl font-semibold text-blue-950">Connexion</h2>
         </div>
-      </div>
 
-      <!-- Bouton Nouveau (masqué quand le formulaire est visible) -->
-      <div id="btnNouveau" class="mb-6 flex justify-between no-print">
-        <button
-          onclick="afficherGestionClients()"
-          class="flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-          Gérer les clients
-        </button>
-        <button
-          onclick="afficherFormulaire()"
-          class="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-          Nouvelle demande
-        </button>
-      </div>
+        <form id="formConnexion" class="space-y-6">
+          <div>
+            <label class="block text-sm font-bold text-blue-950 mb-2">
+              Nom d'utilisateur
+            </label>
+            <input
+              type="text"
+              id="username"
+              required
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              placeholder="Votre nom d'utilisateur"
+            />
+          </div>
 
-      <!-- Formulaire de gestion des clients -->
-      <div
-        id="clientsContainer"
-        class="hidden bg-white rounded-2xl shadow-2xl p-8 mb-8 border border-gray-200 animate-fade-in no-print"
-      >
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-2xl font-bold text-gray-800">Gestion des clients</h3>
+          <div>
+            <label class="block text-sm font-bold text-blue-950 mb-2">
+              Mot de passe
+            </label>
+            <input
+              type="password"
+              id="password"
+              required
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              placeholder="Votre mot de passe"
+            />
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="rememberMe"
+                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              />
+              <label for="rememberMe" class="ml-2 block text-sm text-blue-950">
+                Se souvenir de moi
+              </label>
+            </div>
+            <button
+              type="button"
+              onclick="afficherInscription()"
+              class="text-sm text-blue-950 hover:text-blue-900 font-medium"
+            >
+              Créer un compte
+            </button>
+          </div>
+
           <button
-            onclick="fermerGestionClients()"
-            class="text-gray-500 hover:text-gray-700 transition-colors"
+            type="submit"
+            class="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -165,54 +129,110 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
             </svg>
+            Se connecter
           </button>
+        </form>
+
+        <!-- Message d'erreur -->
+        <div
+          id="messageErreurConnexion"
+          class="hidden mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Page d'inscription -->
+    <div id="pageInscription" class="hidden min-h-screen flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md animate-slide-in">
+        <div class="text-center mb-8">
+          <h1
+            class="text-4xl font-bold bg-gradient-to-r from-blue-950 to-amber-800 bg-clip-text text-transparent mb-3"
+          >
+            BOUSSOLE COMMUNICATION
+          </h1>
+          <h2 class="text-xl font-semibold text-blue-950">Créer un compte</h2>
         </div>
 
-        <div class="space-y-6">
-          <!-- Formulaire d'ajout de client -->
-          <div class="bg-gray-50 p-6 rounded-xl">
-            <h4 class="text-lg font-bold text-gray-800 mb-4">Ajouter un nouveau client</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-bold text-gray-700 mb-2">
-                  Nom du client *
-                </label>
-                <input
-                  type="text"
-                  id="nouveauClientNom"
-                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                  placeholder="Nom du client"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-bold text-gray-700 mb-2">
-                  Contact *
-                </label>
-                <input
-                  type="text"
-                  id="nouveauClientContact"
-                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                  placeholder="Email ou téléphone"
-                />
-              </div>
-            </div>
-            <div class="mt-4">
-              <label class="block text-sm font-bold text-gray-700 mb-2">
-                Informations supplémentaires
-              </label>
-              <textarea
-                id="nouveauClientInfos"
-                rows="3"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none"
-                placeholder="Adresse, notes..."
-              ></textarea>
-            </div>
+        <form id="formInscription" class="space-y-6">
+          <div>
+            <label class="block text-sm font-bold text-blue-950 mb-2">
+              Nom complet
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              required
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              placeholder="Votre nom complet"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-blue-950 mb-2">
+              Nom d'utilisateur
+            </label>
+            <input
+              type="text"
+              id="newUsername"
+              required
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              placeholder="Choisissez un nom d'utilisateur"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-blue-950 mb-2">
+              Mot de passe
+            </label>
+            <input
+              type="password"
+              id="newPassword"
+              required
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              placeholder="Créez un mot de passe"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-blue-950 mb-2">
+              Confirmer le mot de passe
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              required
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              placeholder="Confirmez votre mot de passe"
+            />
+          </div>
+
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="acceptTerms"
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              required
+            />
+            <label for="acceptTerms" class="ml-2 block text-sm text-blue-950">
+              J'accepte les conditions d'utilisation
+            </label>
+          </div>
+
+          <div class="flex gap-4">
             <button
-              onclick="ajouterClient()"
-              class="mt-4 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              type="button"
+              onclick="retourConnexion()"
+              class="flex-1 px-6 py-3 border-2 border-gray-300 text-blue-950 rounded-lg font-bold hover:bg-gray-50 transition-all"
+            >
+              Retour
+            </button>
+            <button
+              type="submit"
+              class="flex-1 flex justify-center items-center gap-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -230,172 +250,45 @@
                 <line x1="20" y1="8" x2="20" y2="14"></line>
                 <line x1="23" y1="11" x2="17" y2="11"></line>
               </svg>
-              Ajouter le client
+              S'inscrire
             </button>
           </div>
+        </form>
 
-          <!-- Liste des clients existants -->
-          <div>
-            <h4 class="text-lg font-bold text-gray-800 mb-4">Clients existants</h4>
-            <div id="listeClientsVide" class="text-center py-8 text-gray-500 bg-gray-50 rounded-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="mx-auto mb-3 text-gray-300"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-              <p class="font-semibold">Aucun client enregistré</p>
-              <p class="text-sm mt-1">Ajoutez votre premier client ci-dessus</p>
-            </div>
-            <div id="listeClients" class="space-y-3 hidden"></div>
-          </div>
-        </div>
+        <!-- Message d'erreur -->
+        <div
+          id="messageErreurInscription"
+          class="hidden mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm"
+        ></div>
       </div>
+    </div>
 
-      <!-- Formulaire de demande -->
-      <div
-        id="formulaireContainer"
-        class="hidden bg-white rounded-2xl shadow-2xl p-8 mb-8 border border-gray-200 animate-fade-in no-print"
-      >
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-2xl font-bold text-gray-800" id="titreFormulaire">
-            Nouvelle demande
-          </h3>
-          <button
-            onclick="annulerFormulaire()"
-            class="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-
-        <div class="space-y-6">
-          <!-- Client avec sélection et création -->
+    <!-- Application principale (cachée au début) -->
+    <div id="appPrincipale" class="hidden">
+      <nav class="mb-12">
+        <!-- En-tête avec informations utilisateur -->
+        <div class="flex justify-between items-center mb-8 animate-slide-in no-print">
           <div>
-            <div class="flex justify-between items-center mb-2">
-              <label class="block text-sm font-bold text-gray-700 uppercase tracking-wide">
-                Client *
-              </label>
-              <button
-                type="button"
-                onclick="afficherGestionClients()"
-                class="text-xs bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full font-bold hover:shadow-lg transition-all"
-              >
-                + Nouveau client
-              </button>
+            <h1
+              class="text-6xl font-bold bg-gradient-to-r from-blue-950  to-amber-800 bg-clip-text text-transparent mb-3"
+            >
+              BOUSSOLE COMMUNICATION
+            </h1>
+            <h2 class="text-3xl font-semibold text-blue-950">DEMANDE DE TRAVAUX</h2>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="text-right">
+              <p class="text-lg font-semibold text-gray-800" id="nomUtilisateur"></p>
+              <p class="text-sm text-gray-600" id="roleUtilisateur"></p>
             </div>
-            <select
-              id="client"
-              required
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
-              onchange="mettreAJourContact()"
-            >
-              <option value="">Sélectionnez un client</option>
-            </select>
-          </div>
-
-          <!-- Date de demande -->
-          <div>
-            <label
-              class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
-            >
-              Date de demande *
-            </label>
-            <input
-              type="date"
-              id="dateDemande"
-              required
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
-            />
-          </div>
-
-          <!-- Contact (auto-rempli si client sélectionné) -->
-          <div>
-            <label
-              class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
-            >
-              Contact *
-            </label>
-            <input
-              type="text"
-              id="contact"
-              required
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
-              placeholder="Téléphone ou Email"
-            />
-          </div>
-
-          <!-- Travaux demandé -->
-          <div>
-            <label
-              class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
-            >
-              Travaux demandé *
-            </label>
-            <input
-              type="text"
-              id="travauxDemande"
-              required
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
-              placeholder="Type de travaux"
-            />
-          </div>
-
-          <!-- Commentaire -->
-          <div>
-            <label
-              class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
-            >
-              Commentaire
-            </label>
-            <textarea
-              id="commentaire"
-              rows="5"
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg resize-none"
-              placeholder="Détails supplémentaires..."
-            ></textarea>
-          </div>
-
-          <!-- Boutons -->
-          <div class="flex flex-wrap gap-4 justify-end pt-4">
             <button
-              onclick="annulerFormulaire()"
-              class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-50 transition-all"
-            >
-              Annuler
-            </button>
-            <button
-              onclick="enregistrerDemande()"
-              class="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              onclick="deconnexion()"
+              class="flex items-center gap-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white px-4 py-2 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -403,110 +296,457 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <path
-                  d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
-                ></path>
-                <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                <polyline points="7 3 7 8 15 8"></polyline>
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
               </svg>
-              Enregistrer
+              Déconnexion
             </button>
           </div>
         </div>
-      </div>
-
-      <!-- Historique -->
-      <div
-        class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 no-print"
-      >
+      </nav>
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Message de succès -->
         <div
-          class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-6 py-5"
+          id="messageSucces"
+          class="hidden bg-gradient-to-r from-blue-950 to-amber-800 text-white rounded-xl shadow-2xl p-6 mb-6 animate-slide-in no-print"
         >
-          <div class="flex justify-between items-center">
-            <h3 class="text-2xl font-bold text-white">
-              📋 Historique des demandes
-            </h3>
-            <span
-              id="compteur"
-              class="bg-white text-blue-600 px-4 py-2 rounded-full font-bold text-lg"
-            >
-              0
-            </span>
-          </div>
-        </div>
-
-        <div class="overflow-x-auto">
-          <div id="listeVide" class="text-center py-16 text-gray-500">
+          <div class="flex items-center gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="64"
-              height="64"
+              width="32"
+              height="32"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="1"
+              stroke-width="3"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="mx-auto mb-4 text-gray-300"
             >
-              <path
-                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-              ></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
-            <p class="text-xl font-semibold">Aucune demande enregistrée</p>
-            <p class="text-sm mt-2">
-              Cliquez sur "Nouveau" pour créer votre première demande
-            </p>
+            <div>
+              <p class="text-2xl font-bold">✓ Succès !</p>
+              <p class="text-lg opacity-90" id="messageTexte">
+                Votre demande a été enregistrée avec succès.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bouton Nouveau (masqué quand le formulaire est visible) -->
+        <div id="btnNouveau" class="mb-6 flex justify-between no-print">
+          <button
+            onclick="afficherGestionClients()"
+            class="flex items-center gap-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Gérer les clients
+          </button>
+          <button
+            onclick="afficherFormulaire()"
+            class="flex items-center gap-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Nouvelle demande
+          </button>
+        </div>
+
+        <!-- Formulaire de gestion des clients -->
+        <div
+          id="clientsContainer"
+          class="hidden bg-white rounded-2xl shadow-2xl p-8 mb-8 border border-gray-200 animate-fade-in no-print"
+        >
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-blue-950">Gestion des clients</h3>
+            <button
+              onclick="fermerGestionClients()"
+              class="text-gray-500 hover:text-gray-700 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
           </div>
 
-          <table id="tableauHistorique" class="w-full hidden">
-            <thead
-              class="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200"
-            >
-              <tr>
-                <th
-                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
+          <div class="space-y-6">
+            <!-- Formulaire d'ajout de client -->
+            <div class="bg-gray-50 p-6 rounded-xl">
+              <h4 class="text-lg font-bold text-blue-950 mb-4">Ajouter un nouveau client</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-2">
+                    Nom du client *
+                  </label>
+                  <input
+                    type="text"
+                    id="nouveauClientNom"
+                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                    placeholder="Nom du client"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-2">
+                    Contact *
+                  </label>
+                  <input
+                    type="text"
+                    id="nouveauClientContact"
+                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                    placeholder="Email ou téléphone"
+                  />
+                </div>
+              </div>
+              <div class="mt-4">
+                <label class="block text-sm font-bold text-gray-700 mb-2">
+                  Informations supplémentaires
+                </label>
+                <textarea
+                  id="nouveauClientInfos"
+                  rows="3"
+                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none"
+                  placeholder="Adresse, notes..."
+                ></textarea>
+              </div>
+              <button
+                onclick="ajouterClient()"
+                class="mt-4 flex items-center gap-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-                  N°
-                </th>
-                <th
-                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
-                >
-                  Client
-                </th>
-                <th
-                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
-                >
-                  Date
-                </th>
-                <th
-                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
-                >
-                  Contact
-                </th>
-                <th
-                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
-                >
-                  Travaux
-                </th>
-                <th
-                  class="px-6 py-4 text-center text-xs font-bold text-gray-700 uppercase tracking-wider"
-                >
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody id="corpsTableau" class="divide-y divide-gray-200"></tbody>
-          </table>
-        </div>
-      </div>
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+                Ajouter le client
+              </button>
+            </div>
 
-      <!-- Zone d'impression (cachée à l'écran) -->
-      <div id="zoneImpression" class="print-only"></div>
+            <!-- Liste des clients existants -->
+            <div>
+              <h4 class="text-lg font-bold text-blue-950 mb-4">Clients existants</h4>
+              <div id="listeClientsVide" class="text-center py-8 text-gray-500 bg-gray-50 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mx-auto mb-3 text-gray-300"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <p class="font-semibold">Aucun client enregistré</p>
+                <p class="text-sm mt-1">Ajoutez votre premier client ci-dessus</p>
+              </div>
+              <div id="listeClients" class="space-y-3 hidden"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulaire de demande -->
+        <div
+          id="formulaireContainer"
+          class="hidden bg-blue-950 rounded-2xl shadow-2xl p-8 mb-8 border border-gray-200 animate-fade-in no-print"
+        >
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-yellow-900" id="titreFormulaire">
+              Nouvelle demande
+            </h3>
+            <button
+              onclick="annulerFormulaire()"
+              class="text-gray-500 hover:text-gray-700 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Client avec sélection et création -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="block text-sm font-bold text-yellow-700 uppercase tracking-wide">
+                  Client *
+                </label>
+                <button
+                  type="button"
+                  onclick="afficherGestionClients()"
+                  class="text-xs bg-gradient-to-r from-blue-950 to-amber-800 text-white px-3 py-1 rounded-full font-bold hover:shadow-lg transition-all"
+                >
+                  + Nouveau client
+                </button>
+              </div>
+              <select
+                id="client"
+                required
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
+                onchange="mettreAJourContact()"
+              >
+                <option value="">Sélectionnez un client</option>
+              </select>
+            </div>
+
+            <!-- Date de demande -->
+            <div>
+              <label
+                class="block text-sm font-bold text-yellow-700 mb-2 uppercase tracking-wide"
+              >
+                Date de demande *
+              </label>
+              <input
+                type="date"
+                id="dateDemande"
+                required
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
+              />
+            </div>
+
+            <!-- Contact (auto-rempli si client sélectionné) -->
+            <div>
+              <label
+                class="block text-sm font-bold text-yellow-700 mb-2 uppercase tracking-wide"
+              >
+                Contact *
+              </label>
+              <input
+                type="text"
+                id="contact"
+                required
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
+                placeholder="Téléphone ou Email"
+              />
+            </div>
+
+            <!-- Travaux demandé -->
+            <div>
+              <label
+                class="block text-sm font-bold text-yellow-700 mb-2 uppercase tracking-wide"
+              >
+                Travaux demandé *
+              </label>
+              <input
+                type="text"
+                id="travauxDemande"
+                required
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg"
+                placeholder="Type de travaux"
+              />
+            </div>
+
+            <!-- Commentaire -->
+            <div>
+              <label
+                class="block text-sm font-bold text-yellow-700 mb-2 uppercase tracking-wide"
+              >
+                Commentaire
+              </label>
+              <textarea
+                id="commentaire"
+                rows="5"
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg resize-none"
+                placeholder="Détails supplémentaires..."
+              ></textarea>
+            </div>
+
+            <!-- Boutons -->
+            <div class="flex flex-wrap gap-4 justify-end pt-4">
+              <button
+                onclick="annulerFormulaire()"
+                class="px-6 py-3 border-2 border-gray-300 text-yellow-700 rounded-lg font-bold hover:bg-gray-50 transition-all"
+              >
+                Annuler
+              </button>
+              <button
+                onclick="enregistrerDemande()"
+                class="flex items-center gap-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+                  ></path>
+                  <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                  <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                Enregistrer
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historique -->
+        <div
+          class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 no-print"
+        >
+          <div
+            class="bg-gradient-to-r from-blue-950 to-amber-800 px-6 py-5"
+          >
+            <div class="flex justify-between items-center">
+              <h3 class="text-2xl font-bold text-white">
+                📋 Historique des demandes
+              </h3>
+              <span
+                id="compteur"
+                class="bg-white text-blue-600 px-4 py-2 rounded-full font-bold text-lg"
+              >
+                0
+              </span>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <div id="listeVide" class="text-center py-16 text-gray-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mx-auto mb-4 text-gray-300"
+              >
+                <path
+                  d="M14 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <p class="text-xl font-semibold">Aucune demande enregistrée</p>
+              <p class="text-sm mt-2">
+                Cliquez sur "Nouveau" pour créer votre première demande
+              </p>
+            </div>
+
+            <table id="tableauHistorique" class="w-full hidden">
+              <thead
+                class="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200"
+              >
+                <tr>
+                  <th
+                    class="px-6 py-4 text-left text-xs font-bold text-yellow-700 uppercase tracking-wider"
+                  >
+                    N°
+                  </th>
+                  <th
+                    class="px-6 py-4 text-left text-xs font-bold text-yellow-700 uppercase tracking-wider"
+                  >
+                    Client
+                  </th>
+                  <th
+                    class="px-6 py-4 text-left text-xs font-bold text-yellow-700 uppercase tracking-wider"
+                  >
+                    Date
+                  </th>
+                  <th
+                    class="px-6 py-4 text-left text-xs font-bold text-yellow-700 uppercase tracking-wider"
+                  >
+                    Contact
+                  </th>
+                  <th
+                    class="px-6 py-4 text-left text-xs font-bold text-yellow-700 uppercase tracking-wider"
+                  >
+                    Travaux
+                  </th>
+                  <th
+                    class="px-6 py-4 text-center text-xs font-bold text-yellow-700 uppercase tracking-wider"
+                  >
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="corpsTableau" class="divide-y divide-gray-200"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Zone d'impression (cachée à l'écran) -->
+        <div id="zoneImpression" class="print-only"></div>
+      </div>
     </div>
 
     <script>
@@ -514,14 +754,156 @@
       let demandes = [];
       let clients = [];
       let editingId = null;
+      let utilisateurConnecte = null;
 
       // Charger les données au démarrage
       document.addEventListener('DOMContentLoaded', function() {
-        chargerClients();
-        chargerDemandes();
+        verifierConnexion();
         document.getElementById("dateDemande").valueAsDate = new Date();
+        
+        // Gestion des formulaires de connexion et inscription
+        document.getElementById("formConnexion").addEventListener("submit", function(e) {
+          e.preventDefault();
+          connexion();
+        });
+        
+        document.getElementById("formInscription").addEventListener("submit", function(e) {
+          e.preventDefault();
+          inscription();
+        });
       });
 
+      // Gestion des utilisateurs
+      function verifierConnexion() {
+        const utilisateurStocke = localStorage.getItem("boussole_utilisateur_connecte");
+        const rememberMe = localStorage.getItem("boussole_remember_me") === "true";
+        
+        if (utilisateurStocke && rememberMe) {
+          utilisateurConnecte = JSON.parse(utilisateurStocke);
+          afficherApplicationPrincipale();
+        } else {
+          afficherPageConnexion();
+        }
+      }
+
+      function afficherPageConnexion() {
+        document.getElementById("pageConnexion").classList.remove("hidden");
+        document.getElementById("pageInscription").classList.add("hidden");
+        document.getElementById("appPrincipale").classList.add("hidden");
+      }
+
+      function afficherApplicationPrincipale() {
+        document.getElementById("pageConnexion").classList.add("hidden");
+        document.getElementById("pageInscription").classList.add("hidden");
+        document.getElementById("appPrincipale").classList.remove("hidden");
+        
+        // Mettre à jour les informations utilisateur
+        document.getElementById("nomUtilisateur").textContent = utilisateurConnecte.fullName;
+        document.getElementById("roleUtilisateur").textContent = utilisateurConnecte.role;
+        
+        // Charger les données de l'application
+        chargerClients();
+        chargerDemandes();
+      }
+
+      function afficherInscription() {
+        document.getElementById("pageConnexion").classList.add("hidden");
+        document.getElementById("pageInscription").classList.remove("hidden");
+      }
+
+      function retourConnexion() {
+        document.getElementById("pageConnexion").classList.remove("hidden");
+        document.getElementById("pageInscription").classList.add("hidden");
+      }
+
+      function connexion() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const rememberMe = document.getElementById("rememberMe").checked;
+        
+        // Récupérer les utilisateurs enregistrés
+        const utilisateursStockes = localStorage.getItem("boussole_utilisateurs");
+        const utilisateurs = utilisateursStockes ? JSON.parse(utilisateursStockes) : [];
+        
+        // Vérifier les identifiants
+        const utilisateur = utilisateurs.find(u => u.username === username && u.password === password);
+        
+        if (utilisateur) {
+          utilisateurConnecte = utilisateur;
+          localStorage.setItem("boussole_utilisateur_connecte", JSON.stringify(utilisateur));
+          localStorage.setItem("boussole_remember_me", rememberMe);
+          afficherApplicationPrincipale();
+        } else {
+          document.getElementById("messageErreurConnexion").textContent = "Nom d'utilisateur ou mot de passe incorrect";
+          document.getElementById("messageErreurConnexion").classList.remove("hidden");
+        }
+      }
+
+      function inscription() {
+        const fullName = document.getElementById("fullName").value.trim();
+        const username = document.getElementById("newUsername").value.trim();
+        const password = document.getElementById("newPassword").value.trim();
+        const confirmPassword = document.getElementById("confirmPassword").value.trim();
+        const acceptTerms = document.getElementById("acceptTerms").checked;
+        
+        // Validation
+        if (!fullName || !username || !password || !confirmPassword) {
+          document.getElementById("messageErreurInscription").textContent = "Tous les champs sont obligatoires";
+          document.getElementById("messageErreurInscription").classList.remove("hidden");
+          return;
+        }
+        
+        if (password !== confirmPassword) {
+          document.getElementById("messageErreurInscription").textContent = "Les mots de passe ne correspondent pas";
+          document.getElementById("messageErreurInscription").classList.remove("hidden");
+          return;
+        }
+        
+        if (!acceptTerms) {
+          document.getElementById("messageErreurInscription").textContent = "Vous devez accepter les conditions d'utilisation";
+          document.getElementById("messageErreurInscription").classList.remove("hidden");
+          return;
+        }
+        
+        // Récupérer les utilisateurs existants
+        const utilisateursStockes = localStorage.getItem("boussole_utilisateurs");
+        const utilisateurs = utilisateursStockes ? JSON.parse(utilisateursStockes) : [];
+        
+        // Vérifier si l'utilisateur existe déjà
+        if (utilisateurs.some(u => u.username === username)) {
+          document.getElementById("messageErreurInscription").textContent = "Ce nom d'utilisateur est déjà utilisé";
+          document.getElementById("messageErreurInscription").classList.remove("hidden");
+          return;
+        }
+        
+        // Créer le nouvel utilisateur
+        const nouvelUtilisateur = {
+          id: Date.now(),
+          fullName: fullName,
+          username: username,
+          password: password,
+          role: "Utilisateur",
+          dateInscription: new Date().toLocaleString("fr-FR")
+        };
+        
+        utilisateurs.push(nouvelUtilisateur);
+        localStorage.setItem("boussole_utilisateurs", JSON.stringify(utilisateurs));
+        
+        // Connecter automatiquement l'utilisateur
+        utilisateurConnecte = nouvelUtilisateur;
+        localStorage.setItem("boussole_utilisateur_connecte", JSON.stringify(nouvelUtilisateur));
+        localStorage.setItem("boussole_remember_me", true);
+        
+        afficherApplicationPrincipale();
+      }
+
+      function deconnexion() {
+        utilisateurConnecte = null;
+        localStorage.removeItem("boussole_utilisateur_connecte");
+        afficherPageConnexion();
+      }
+
+      // Gestion des clients et demandes (fonctions existantes)
       function chargerClients() {
         const clientsStockes = localStorage.getItem("boussole_clients");
         if (clientsStockes) {
@@ -560,8 +942,6 @@
         const nom = document.getElementById("nouveauClientNom").value.trim();
         const contact = document.getElementById("nouveauClientContact").value.trim();
         const infos = document.getElementById("nouveauClientInfos").value.trim();
-
-        console.log("Tentative d'ajout client:", { nom, contact, infos }); // Debug
 
         if (!nom || !contact) {
           alert("⚠️ Veuillez remplir le nom et le contact du client");
@@ -661,14 +1041,14 @@
           div.innerHTML = `
             <div class="flex justify-between items-start">
               <div class="flex-1">
-                <h5 class="font-bold text-gray-800 text-lg">${client.nom}</h5>
-                <p class="text-gray-600 text-sm mt-1">📞 ${client.contact}</p>
-                ${client.infos ? `<p class="text-gray-500 text-sm mt-1">${client.infos}</p>` : ''}
-                <p class="text-gray-400 text-xs mt-2">Créé le ${client.dateCreation}</p>
+                <h5 class="font-bold text-yellow-800 text-lg">${client.nom}</h5>
+                <p class="text-yellow-600 text-sm mt-1">📞 ${client.contact}</p>
+                ${client.infos ? `<p class="text-yellow-500 text-sm mt-1">${client.infos}</p>` : ''}
+                <p class="text-yellow-400 text-xs mt-2">Créé le ${client.dateCreation}</p>
               </div>
               <button
                 onclick="supprimerClient(${client.id})"
-                class="ml-4 p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                class="ml-4 p-2 bg-blue-950 text-white rounded-lg hover:bg-red-600 transition-colors"
                 title="Supprimer"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -756,6 +1136,7 @@
           dateCreation: editingId
             ? demandes.find((d) => d.id === editingId).dateCreation
             : new Date().toLocaleString("fr-FR"),
+          createur: utilisateurConnecte.username
         };
 
         if (editingId) {
@@ -811,20 +1192,20 @@
           tr.className = "hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-200";
           tr.innerHTML = `
             <td class="px-6 py-4 whitespace-nowrap">
-              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-blue-950 to-amber-800 text-white font-bold text-sm">
                 ${index + 1}
               </span>
             </td>
             <td class="px-6 py-4">
-              <div class="text-sm font-bold text-gray-900">${demande.client}</div>
-              <div class="text-xs text-gray-500">${demande.dateCreation}</div>
+              <div class="text-sm font-bold text-yellow-900">${demande.client}</div>
+              <div class="text-xs text-yellow-500">${demande.dateCreation}</div>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-yellow-600">
               ${new Date(demande.dateDemande).toLocaleDateString("fr-FR")}
             </td>
-            <td class="px-6 py-4 text-sm text-gray-600">${demande.contact}</td>
-            <td class="px-6 py-4 text-sm text-gray-600">
-              <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
+            <td class="px-6 py-4 text-sm text-yellow-600">${demande.contact}</td>
+            <td class="px-6 py-4 text-sm text-yellow-600">
+              <span class="inline-block bg-white text-amber-800 px-3 py-1 rounded-full font-semibold">
                 ${demande.travauxDemande}
               </span>
             </td>
@@ -832,7 +1213,7 @@
               <div class="flex justify-center gap-2">
                 <button
                   onclick="modifierDemande(${demande.id})"
-                  class="group relative p-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg hover:shadow-lg transition-all transform hover:scale-110"
+                  class="group relative p-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white rounded-lg hover:shadow-lg transition-all transform hover:scale-110"
                   title="Modifier"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -842,7 +1223,7 @@
                 </button>
                 <button
                   onclick="supprimerDemande(${demande.id})"
-                  class="group relative p-2 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-lg hover:shadow-lg transition-all transform hover:scale-110"
+                  class="group relative p-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white rounded-lg hover:shadow-lg transition-all transform hover:scale-110"
                   title="Supprimer"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -854,7 +1235,7 @@
                 </button>
                 <button
                   onclick="imprimerDemande(${demande.id})"
-                  class="group relative p-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:shadow-lg transition-all transform hover:scale-110"
+                  class="group relative p-2 bg-gradient-to-r from-blue-950 to-amber-800 text-white rounded-lg hover:shadow-lg transition-all transform hover:scale-110"
                   title="Imprimer"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -938,6 +1319,10 @@
                 <tr>
                   <td style="padding: 15px; font-weight: bold; color: #374151;">Date d'enregistrement:</td>
                   <td style="padding: 15px; color: #111827;">${demande.dateCreation}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 15px; font-weight: bold; color: #374151;">Créé par:</td>
+                  <td style="padding: 15px; color: #111827;">${demande.createur || "N/A"}</td>
                 </tr>
               </table>
             </div>
